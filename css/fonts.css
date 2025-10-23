@@ -1,0 +1,34 @@
+/* Runtergeladene Fonts im Ordner schriften (oder anderen Ordner) als eot, woff und wof2 Format abspeichern */
+
+/* 
+300: thin
+400: regular
+500: medium
+600: semi-bold
+700: bold
+800: extra-bold
+900: black
+
+*/
+
+@font-face {
+    font-family: 'poppins_bold';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('../schriften/centurygothic.eot');
+    src: url('../schriften/poppins_bold.eot?#iefix') format('embedded-opentype'),
+        url('../schriften/poppins_bold.woff2') format('woff2'),
+        url('../schriften/poppins_bold.woff') format('woff'),
+}
+
+@font-face {
+    font-family: 'centurygothic';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url('../schriften/centurygothic.eot');
+    src: url('../schriften/centurygothic.eot?#iefix') format('embedded-opentype'),
+        url('../schriften/centurygothic.woff2') format('woff2'),
+        url('../schriften/centurygothic.woff') format('woff'),
+}
