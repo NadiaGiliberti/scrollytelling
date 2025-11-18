@@ -33,5 +33,25 @@ function createButtonRain() {
     }
 }
 
+// PINKER KNOPF - fällt in die Mitte und bleibt dort
+    const specialButton = document.createElement('img');
+    specialButton.src = 'images/knopf_rosa.png'; // Hier dein neues Bild einfügen
+    specialButton.classList.add('special_falling_button');
+    
+    // Größe des pinken Knopfs
+    specialButton.style.width = '15%'; // Passe die Größe nach Bedarf an
+    
+    // Startposition: mittig horizontal, oberhalb des Bildschirms
+    specialButton.style.left = '50%';
+    specialButton.style.transform = 'translateX(-50%)';
+    specialButton.style.top = '-300px';
+    
+    // Animation: etwas später starten und länger dauern
+    specialButton.style.animationDuration = '3s';
+    specialButton.style.animationDelay = '3s'; // Startet nach 3 Sekunden
+    
+    document.body.appendChild(specialButton);
+
+
 // Regen beim Laden der Seite starten
 window.addEventListener('load', createButtonRain);

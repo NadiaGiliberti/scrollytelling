@@ -25,3 +25,24 @@ body {
         opacity: 0;
     }
 }
+
+/* Pinker-Knopf-Regen Animation */
+.special_falling_button {
+    position: fixed;
+    animation: fallToCenter 3s ease-in forwards;
+    z-index: 0.5; 
+}
+
+@keyframes fallToCenter {
+    0% {
+        top: -350px;
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(720deg);
+        opacity: 1;
+    }
+}
