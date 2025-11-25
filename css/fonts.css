@@ -12,23 +12,12 @@
 */
 
 @font-face {
-    font-family: 'poppins_bold';
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-    src: url('../schriften/centurygothic.eot');
-    src: url('../schriften/poppins_bold.eot?#iefix') format('embedded-opentype'),
-        url('../schriften/poppins_bold.woff2') format('woff2'),
-        url('../schriften/poppins_bold.woff') format('woff'),
-}
-
-@font-face {
-    font-family: 'centurygothic';
+    font-family: 'frijole';
     font-weight: 500;
     font-style: normal;
     font-display: swap;
-    src: url('../schriften/centurygothic.eot');
-    src: url('../schriften/centurygothic.eot?#iefix') format('embedded-opentype'),
-        url('../schriften/centurygothic.woff2') format('woff2'),
-        url('../schriften/centurygothic.woff') format('woff'),
+    src: url('../schriften/Frijole-Regular.eot');
+    src: url('../schriften/Frijole-Regular.eot?#iefix') format('embedded-opentype'), 
+        url('../schriften/Frijole-Regular.woff2') format('woff2'),
+        url('../schriften/Frijole-Regular.woff') format('woff'),
 }

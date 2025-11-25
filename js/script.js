@@ -33,25 +33,39 @@ function createButtonRain() {
     }
 }
 
-// PINKER KNOPF - fällt in die Mitte und bleibt dort
-    const specialButton = document.createElement('img');
-    specialButton.src = 'images/knopf_rosa.png'; // Hier dein neues Bild einfügen
-    specialButton.classList.add('special_falling_button');
-    
-    // Größe des pinken Knopfs
-    specialButton.style.width = '15%'; // Passe die Größe nach Bedarf an
-    
-    // Startposition: mittig horizontal, oberhalb des Bildschirms
-    specialButton.style.left = '50%';
-    specialButton.style.transform = 'translateX(-50%)';
-    specialButton.style.top = '-300px';
-    
-    // Animation: etwas später starten und länger dauern
-    specialButton.style.animationDuration = '3s';
-    specialButton.style.animationDelay = '3s'; // Startet nach 3 Sekunden
-    
-    document.body.appendChild(specialButton);
+// PINKER KNOPF - fällt zum ersten O und ersetzt es
+const specialButton = document.createElement('img');
+specialButton.src = 'images/knopf_rosa.png';
+specialButton.classList.add('special_falling_button');
 
+// Größe des pinken Knopfs
+specialButton.style.width = '9%';
+
+// Startposition: mittig horizontal, oberhalb des Bildschirms
+specialButton.style.left = '50%';
+specialButton.style.top = '-350px';
+
+document.body.appendChild(specialButton);
+
+const h1Element = document.querySelector('h1');
+
+// Berechne die Position des O
+setTimeout(() => {
+    const oTarget = document.getElementById('o-target');
+    const rect = oTarget.getBoundingClientRect();
+    
+    // Endposition auf das O setzen
+    specialButton.style.left = rect.left + rect.width / 2 + 'px';
+    specialButton.style.top = rect.top + rect.height / 2 + 'px';
+    
+    // Animation später starten (3 Sekunden Verzögerung)
+    specialButton.style.animationDelay = '3s';
+    
+    // Titel einblenden wenn Animation fertig ist (nach 3s delay + 3s animation = 6s)
+    setTimeout(() => {
+        h1Element.classList.add('visible');
+    }, 5830); // 3000ms delay + 3000ms animation
+}, 100);
 
 // Regen beim Laden der Seite starten
 window.addEventListener('load', createButtonRain);
