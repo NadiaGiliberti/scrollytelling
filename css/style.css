@@ -68,6 +68,7 @@ body {
 
 h1 {
     font-family: 'frijole';
+    font-weight: 400;
     color: white;
     font-size: 9rem;
     text-align: center;
