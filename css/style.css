@@ -41,7 +41,7 @@ body {
 
 /* Pinker-Knopf-Regen Animation */
 .special_falling_button {
-    position: fixed;
+    position: absolute;
     opacity: 0; /* Startet unsichtbar */
     animation: fallToO 3s ease-in forwards;
     z-index: 10; 
@@ -70,7 +70,7 @@ h1 {
     font-family: 'frijole';
     font-weight: 400;
     color: white;
-    font-size: 9rem;
+    font-size: clamp(4rem, 10vw, 11rem);
     text-align: center;
     opacity: 0;
     transition: opacity 0.2s ease-in;
