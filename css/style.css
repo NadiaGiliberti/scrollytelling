@@ -15,9 +15,6 @@ body {
     background-position: center center;
     background-size: cover;
     /* skaliert Bild auf Viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     margin: 0;
 }
@@ -36,7 +33,7 @@ h1 {
     }
 }
 
-p   {
+p {
     font-family: 'arial', sans-serif;
     font-weight: 400;
     color: white;
@@ -119,4 +116,11 @@ p   {
 
 #mantel {
     height: 100vh;
+}
+
+
+/* SEITE MANTEL WALK */
+
+#frau_walk {
+    width: 20%;
 }
