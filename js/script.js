@@ -4,7 +4,7 @@ function createButtonRain() {
     
     for (let i = 0; i < numberOfButtons; i++) {
         const button = document.createElement('img');
-        button.src = 'images/knopf_weiss_transparent.png';
+        button.src = 'images/skizzen/knopf_weiss_transparent.png';
         button.classList.add('falling_button');
         
         // Zufällige Größe für Variation
@@ -35,7 +35,7 @@ function createButtonRain() {
 
 // PINKER KNOPF - fällt zum ersten O und ersetzt es
 const specialButton = document.createElement('img');
-specialButton.src = 'images/knopf_rosa.png';
+specialButton.src = 'images/skizzen/knopf_rosa.png';
 specialButton.classList.add('special_falling_button');
 
 // Funktion zur Berechnung der Button-Größe basierend auf Schriftgröße

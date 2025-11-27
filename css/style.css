@@ -36,6 +36,13 @@ h1 {
     }
 }
 
+p   {
+    font-family: 'arial', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: clamp(1rem, 2.5vw, 3rem);
+}
+
 
 /* TITELSEITE HERO SECTION */
 
@@ -101,6 +108,14 @@ h1 {
 }
 
 /* SEITE MANTEL - EINLEITUNG */
+
+.container_mantel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 #mantel {
     height: 100vh;
