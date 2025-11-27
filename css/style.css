@@ -2,20 +2,49 @@
 @import "fonts.css";
 
 /* Verhindert horizontales Scrollen durch überstehende Elemente */
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
+
+/* ALLGEMEINE STYLES */
 
 body {
     background-image: url('../images/background.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover; /* skaliert Bild auf Viewport */
+    background-size: cover;
+    /* skaliert Bild auf Viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+}
+
+h1 {
+    font-family: 'frijole';
+    font-weight: 400;
+    color: white;
+    font-size: clamp(4rem, 10vw, 11rem);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+
+    &.visible {
+        opacity: 1;
+    }
+}
+
+
+/* TITELSEITE HERO SECTION */
+
+.start {
+    min-height: 100vh;
+    /* Nimmt die ganze Bildschirmhöhe ein */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Knopf-Regen Animation */
@@ -29,10 +58,12 @@ body {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
+
     80% {
         transform: translateY(80vh) rotate(288deg);
         opacity: 0.9;
     }
+
     100% {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
@@ -42,45 +73,35 @@ body {
 /* Pinker-Knopf-Regen Animation */
 .special_falling_button {
     position: absolute;
-    opacity: 0; /* Startet unsichtbar */
+    opacity: 0;
+    /* Startet unsichtbar */
     animation: fallToO 3s ease-in forwards;
-    z-index: 10; 
+    z-index: 10;
 }
 
 @keyframes fallToO {
     0% {
-        opacity: 1; /* Wird sichtbar beim Start der Animation */
+        opacity: 1;
+        /* Wird sichtbar beim Start der Animation */
         top: -350px;
         left: 50%;
         transform: translate(-50%, 0) rotate(0deg);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) rotate(720deg);
     }
 }
-.start {
-    min-height: 100vh; /* Nimmt die ganze Bildschirmhöhe ein */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-h1 {
-    font-family: 'frijole';
-    font-weight: 400;
-    color: white;
-    font-size: clamp(4rem, 10vw, 11rem);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.2s ease-in;
-}
-
-h1.visible {
-    opacity: 1;
-}
 
 #o-target {
     opacity: 0;
     position: relative;
+}
+
+/* SEITE MANTEL - EINLEITUNG */
+
+#mantel {
+    height: 100vh;
 }
