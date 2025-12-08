@@ -1,90 +1,88 @@
 // Knopf-Regen Effekt
-function createButtonRain() {
-    const numberOfButtons = 100; // Anzahl der fallenden Knöpfe
+function createKnopfRain() {
+    const numberOfKnopf = 100; // Anzahl der fallenden Knöpfe
     
-    for (let i = 0; i < numberOfButtons; i++) {
-        const button = document.createElement('img');
-        button.src = 'images/skizzen/knopf_weiss_transparent.png';
-        button.classList.add('falling_button');
+    for (let i = 0; i < numberOfKnopf; i++) {
+        const knopf = document.createElement('img');
+        knopf.src = 'images/skizzen/knopf_weiss_transparent.png';
+        knopf.classList.add('falling_knopf');
         
         // Zufällige Größe für Variation
         const size = Math.random() * 5 + 10; // zwischen 10% und 15%
-        button.style.width = size + '%';
+        knopf.style.width = size + '%';
         
         // Zufällige horizontale Position (angepasst, damit Knöpfe nicht rauslappen)
         const maxLeft = 100 - size; // Maximalposition berücksichtigt Knopfbreite
-        button.style.left = Math.random() * maxLeft + '%';
+        knopf.style.left = Math.random() * maxLeft + '%';
         
         // Zufällige Startposition (weit oberhalb des sichtbaren Bereichs)
-        button.style.top = -(Math.random() * 300 + 200) + 'px';
+        knopf.style.top = -(Math.random() * 300 + 200) + 'px';
         
         // Zufällige Animationsdauer (zwischen 2.5 und 4.5 Sekunden)
-        button.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+        knopf.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
         
         // Zufällige Verzögerung für gestaffelten Start (größerer Bereich für bessere Verteilung)
-        button.style.animationDelay = Math.random() * 5 + 's';
+        knopf.style.animationDelay = Math.random() * 5 + 's';
         
-        document.body.appendChild(button);
+        document.body.appendChild(knopf);
         
         // Knopf nach Animation entfernen
-        button.addEventListener('animationend', () => {
-            button.remove();
+        knopf.addEventListener('animationend', () => {
+            knopf.remove();
         });
     }
 }
 
 // PINKER KNOPF - fällt zum ersten O und ersetzt es
-const specialButton = document.createElement('img');
-specialButton.src = 'images/skizzen/knopf_rosa.png';
-specialButton.classList.add('special_falling_button');
+const specialKnopf = document.createElement('img');
+specialKnopf.src = 'images/skizzen/knopf_rosa.png';
+specialKnopf.classList.add('special_falling_knopf');
 
 // Funktion zur Berechnung der Button-Größe basierend auf Schriftgröße
-function updateButtonSize() {
+function updateKnopfSize() {
     const h1 = document.querySelector('h1');
     const fontSize = parseFloat(window.getComputedStyle(h1).fontSize);
     // Button-Größe = ca. 95% der Schriftgröße (anpassbar)
-    specialButton.style.width = (fontSize * 0.95) + 'px';
-    specialButton.style.height = (fontSize * 0.95) + 'px';
+    specialKnopf.style.width = (fontSize * 0.95) + 'px';
+    specialKnopf.style.height = (fontSize * 0.95) + 'px';
 }
 
-updateButtonSize();
+updateKnopfSize();
 
 // Startposition: mittig horizontal, oberhalb des Bildschirms
-specialButton.style.left = '50%';
-specialButton.style.top = '-350px';
-
-document.body.appendChild(specialButton);
+specialKnopf.style.left = '50%';
+specialKnopf.style.top = '-350px';
+document.body.appendChild(specialKnopf);
 
 const h1Element = document.querySelector('h1');
+const buttons = document.querySelectorAll('.buttons .button'); // ← HIER ÄNDERN
 
 // Funktion zur Positionierung des Buttons
-function updateButtonPosition() {
+function updateKnopfPosition() {
     const oTarget = document.getElementById('o-target');
     const rect = oTarget.getBoundingClientRect();
-    
     // Endposition auf das O setzen (relativ zum Dokument, nicht zum Viewport)
-    specialButton.style.left = rect.left + window.scrollX + rect.width / 2 + 'px';
-    specialButton.style.top = rect.top + window.scrollY + rect.height / 2 + 'px';
+    specialKnopf.style.left = rect.left + window.scrollX + rect.width / 2 + 'px';
+    specialKnopf.style.top = rect.top + window.scrollY + rect.height / 2 + 'px';
 }
 
 // Berechne die Position des O
 setTimeout(() => {
-    updateButtonPosition();
-    
+    updateKnopfPosition();
     // Animation später starten (3 Sekunden Verzögerung)
-    specialButton.style.animationDelay = '3s';
-    
+    specialKnopf.style.animationDelay = '3s';
     // Titel einblenden wenn Animation fertig ist (nach 3s delay + 3s animation = 6s)
     setTimeout(() => {
         h1Element.classList.add('visible');
+        buttons.forEach(btn => btn.classList.add('visible'));
     }, 5830); // 3000ms delay + 3000ms animation
 }, 100);
 
 // Button-Position und -Größe bei Resize aktualisieren
 window.addEventListener('resize', () => {
-    updateButtonSize();
-    updateButtonPosition();
+    updateKnopfSize();
+    updateKnopfPosition();
 });
 
 // Regen beim Laden der Seite starten
-window.addEventListener('load', createButtonRain);
+window.addEventListener('load', createKnopfRain);
