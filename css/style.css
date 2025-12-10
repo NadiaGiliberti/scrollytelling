@@ -1,23 +1,28 @@
 @import "reset.css";
 @import "fonts.css";
 
-/* Verhindert horizontales Scrollen durch überstehende Elemente */
-html,
-body {
-    overflow-x: hidden;
-}
+
 
 /* ALLGEMEINE STYLES */
 
 body {
     background-image: url('../images/background.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    /* skaliert Bild auf Viewport */
-    min-height: 100vh;
-    margin: 0;
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
+.container_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+
 
 h1 {
     font-family: 'frijole';
