@@ -1,23 +1,60 @@
-.foto_strassenrand {
-width: 30%;
-visibility: visible;
+.container_geschichte {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 4%;
+    justify-content: center;
+    align-items: center;
 }
 
-.button_aventure{
-  font-family: 'frijole';
-  font-weight: 400;
-  font-size: clamp(2rem, 2.5vw, 3rem);
-  color: white;
-  background-color: #DB97C7;
-  border: none;
-  border-radius: 30px;
-  padding: 15px 30px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.2s ease-in;
-  text-decoration: none;
-  
-  &:hover {
-    background-color: #ffbceb;
-  }
+.container_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    
+}
+
+.text_geschichte {
+    width: 90%;
+    text-align: center;
+}
+
+.container_fotos {
+    width: 55%;
+}
+
+.foto_strassenrand {
+    width: 40%;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    margin: 1%;
+}
+
+.foto_strassenrand_normal:hover {
+    content: url('../images/fotos/knopfi_strassenrand_farbig.jpg');
+}
+
+.foto_strassenrand_nah:hover {
+    content: url('../images/fotos/knopfi_strassenrand_nah_farbig.jpg');
+}
+
+.button_aventure {
+    font-family: 'frijole';
+    font-weight: 400;
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    color: white;
+    background-color: #DB97C7;
+    border: none;
+    border-radius: 30px;
+    margin-top: 8%;
+    padding: 15px 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease-in;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #ffbceb;
+    }
 }
