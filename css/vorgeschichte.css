@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     width: 45%;
-    
+
 }
 
 .text_geschichte {
@@ -21,14 +21,16 @@
 }
 
 .container_fotos {
+    display: flex;
     width: 55%;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .foto_strassenrand {
     width: 40%;
     visibility: visible;
     transition: opacity 0.3s ease-in-out;
-    margin: 1%;
 }
 
 .foto_strassenrand_normal:hover {
@@ -38,4 +40,51 @@
 .foto_strassenrand_nah:hover {
     content: url('../images/fotos/knopfi_strassenrand_nah_farbig.jpg');
 }
+
+
+/*** kleiner PC / Tablet ***/
+@media screen and (max-width: 768px) and (min-width: 577px) {
+
+.container_geschichte {
+    flex-direction: column;
+
+}
+
+.container_text {
+    width: 80%;
+    margin-top: 5%;
+}
+
+.container_fotos {
+    width: 100%;
+}
+
+
+}
+
+/*** Handy  ***/
+@media screen and (max-width: 576px) {
+
+    
+.container_geschichte {
+    flex-direction: column;
+
+}
+
+.container_text {
+    width: 80%;
+    margin-top: 5%;
+}
+
+.container_fotos {
+    width: 100%;
+}
+
+
+
+}
+
+
+
+
 
