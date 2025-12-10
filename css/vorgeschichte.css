@@ -2,3 +2,22 @@
 width: 30%;
 visibility: visible;
 }
+
+.button_aventure{
+  font-family: 'frijole';
+  font-weight: 400;
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  color: white;
+  background-color: #DB97C7;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease-in;
+  text-decoration: none;
+  
+  &:hover {
+    background-color: #ffbceb;
+  }
+}
