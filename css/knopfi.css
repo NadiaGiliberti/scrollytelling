@@ -1,21 +1,73 @@
-/* SEITE MANTEL - EINLEITUNG */
+/* Am Anfang deines CSS oder in style.css */
+html {
+  overflow-y: scroll; /* Scrollbar immer sichtbar */
+  overflow-x: hidden; /* Horizontales Scrollen verhindern */
+}
+
+body {
+  overflow-x: hidden; /* Horizontales Scrollen verhindern */
+  width: 100%;
+}
 
 .container_mantel {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  width: 100%;
+  height: 300vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Verhindert horizontales Überlaufen */
+  z-index: -1;
+}
+
+.mantel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* Maximale Breite setzen */
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5%;
+  gap: 5rem;
+  margin: 0 auto; /* Zentriert horizontal */
 }
 
 #mantel {
-    height: 100vh;
+  height: 100vh;
+  max-height: 90vh; /* Verhindert dass es zu groß wird */
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
+.mantel-wrapper p {
+  max-width: 40%;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  flex-shrink: 1;
+}
 
-/* SEITE MANTEL WALK */
+.container_walk {
+  opacity: 0;
+  visibility: hidden;
+  min-height: 100vh; /* KÜRZER = Video spielt SCHNELLER ab */
+  /* Aktuell: 200vh - reduziere auf 100vh oder 150vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
 #frau_walk {
-    width: 20%;
+  width: 20%;
+  display: block;
+  z-index: 1;
 }
 
+#strasse_frontal {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
