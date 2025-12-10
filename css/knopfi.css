@@ -34,7 +34,7 @@ body {
 
 #mantel {
   height: 100vh;
-  max-height: 90vh; /* Verhindert dass es zu groß wird */
+  max-height: 150vh; /* Verhindert dass es zu groß wird */
   width: auto;
   object-fit: cover;
   flex-shrink: 0;
@@ -62,6 +62,7 @@ body {
   width: 20%;
   display: block;
   z-index: 1;
+  position: relative; /* WICHTIG für die x-Transformation */
 }
 
 #strasse_frontal {
