@@ -12,23 +12,29 @@
 <body>
     <header></header>
     <main>
-        <div class="container_mantel">
-            <img src="images/skizzen/mantel.png" id="mantel" alt="Mantel im Trenchcoat-Stil">
-            <p>C’était un matin venteux dans la vieille ville de Berne, lorsqu’un petit bouton pendait doucement au manteau de sa propriétaire. Ensemble, ils quittèrent la maison. Le bouton tenait encore – pour l’instant.</p>
-        </div>
+     <div class="container_mantel">
+        <div class="mantel-wrapper">
+        <img src="images/skizzen/mantel.png" id="mantel" alt="Mantel im Trenchcoat-Stil">
+        <p>C'était un matin venteux dans la vieille ville de Berne, lorsqu'un petit bouton pendait doucement au manteau de sa propriétaire. Ensemble, ils quittèrent la maison. Le bouton tenait encore – pour l'instant.</p>
+  </div>
+</div>
 
         <div class="container_walk">
-            <video id="frau_walk" autoplay loop muted playsinline>
-                <source src="images/skizzen/vanilla_walk.webm" type="video/webm">
+            <video id="frau_walk" muted playsinline preload="auto">
+            <source src="images/skizzen/vanilla_walk.webm" type="video/webm">
             </video>
-            <img src="images/fotos/strasse_frontal.png" alt="Foto Münsterplatz">
+            <img id="strasse_frontal" src="images/fotos/strasse_frontal.png" alt="Foto Münsterplatz">
         </div>
 
-        <script src="js/gsap.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
-    <script src="js/knopfi.js"></script>
 </main>
 <footer></footer>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/knopfi.js"></script>
+
+</body>
+
 </body>
 
 
