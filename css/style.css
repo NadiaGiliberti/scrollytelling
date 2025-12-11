@@ -8,6 +8,7 @@
 body {
     background-image: url('../images/background.png');
     background-repeat: repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;

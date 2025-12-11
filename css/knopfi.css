@@ -11,6 +11,10 @@ html, body {
   justify-content: space-evenly;
   align-items: center;
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 #mantel {
@@ -27,8 +31,13 @@ html, body {
   align-items: center;
   justify-content: flex-start;
   padding-left: 5%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden; /* WICHTIG: Verhindert dass die Straße overflow verursacht */
+  z-index: 1;
+  width: 100vw;
+  opacity: 0;
 }
 
 #strasse_frontal {

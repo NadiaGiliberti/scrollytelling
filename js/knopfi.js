@@ -5,25 +5,33 @@ ScrollTrigger.config({
   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
 });
 
-// Timeline für Container mit Mantel-Zoom und Ausblenden
+// Erstelle einen Scroll-Spacer für die erste Animation
+const scrollSpacer = document.createElement('div');
+scrollSpacer.style.height = '200vh';
+scrollSpacer.id = 'scroll-spacer';
+document.querySelector('main').prepend(scrollSpacer);
+
+// Timeline für Container mit Mantel-Zoom und Crossfade
 let tl = gsap.timeline({
   scrollTrigger: {
-    trigger: ".container_mantel",
+    trigger: "#scroll-spacer",
     start: "top top",
-    end: "+=2000",
+    end: "bottom bottom",
     scrub: 1,
-    pin: true,
-    markers: true,
   }
 });
 
+// Mantel Zoom und Ausblenden
 tl.to("#mantel", {
   scale: 5,
   transformOrigin: "center center",
 }, 0)
   .to(".container_mantel", {
     opacity: 0,
-  }, 0);
+  }, 0.5)
+  .to(".container_walk", {
+    opacity: 1,
+  }, 0.5);
 
 // Video Frame-by-Frame scrubbing - OPTIMIERT
 const video = document.querySelector("#frau_walk");
@@ -56,21 +64,24 @@ if (video) {
       // Straßen-Animation parallel zum Video
       const strasse = document.querySelector("#strasse_frontal");
 
+      // Erstelle einen zweiten Scroll-Spacer für die Walk-Animation
+      const walkSpacer = document.createElement('div');
+      walkSpacer.style.height = `${scrollDistance}px`;
+      walkSpacer.id = 'walk-spacer';
+      document.querySelector('main').appendChild(walkSpacer);
+
       // GSAP Timeline für synchronisierte Animationen
-      const tl = gsap.timeline({
+      const walkTimeline = gsap.timeline({
         scrollTrigger: {
-          trigger: ".container_walk",
+          trigger: "#walk-spacer",
           start: "top top",
-          end: () => `+=${scrollDistance}px`,
-          pin: true,
+          end: "bottom bottom",
           scrub: 0.1, // Minimal smoothing für bessere Performance
-          markers: true,
-          anticipatePin: 1,
         }
       });
 
       // Video scrubbing via GSAP (bessere Performance)
-      tl.to(video, {
+      walkTimeline.to(video, {
         currentTime: duration,
         duration: 1,
         ease: "none",
@@ -81,7 +92,7 @@ if (video) {
 
       // Straßen-Animation parallel
       if (strasse) {
-        tl.fromTo(strasse,
+        walkTimeline.fromTo(strasse,
           { x: "100%" },  // Start: rechts außerhalb
           {
             x: "-100%",   // Ende: links außerhalb
