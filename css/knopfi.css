@@ -1,74 +1,51 @@
-/* Am Anfang deines CSS oder in style.css */
-html {
-  overflow-y: scroll; /* Scrollbar immer sichtbar */
-  overflow-x: hidden; /* Horizontales Scrollen verhindern */
-}
-
-body {
-  overflow-x: hidden; /* Horizontales Scrollen verhindern */
+html, body {
+  overflow-x: hidden;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 .container_mantel {
-  width: 100%;
-  height: 300vh;
-  position: relative;
   display: flex;
-  justify-content: center;
-  overflow: hidden; /* Verhindert horizontales Überlaufen */
-  z-index: -1;
-}
-
-.mantel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1400px; /* Maximale Breite setzen */
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 0 2.5%;
-  gap: 5rem;
-  margin: 0 auto; /* Zentriert horizontal */
+  overflow: hidden;
 }
 
 #mantel {
-  height: 100vh;
-  max-height: 150vh; /* Verhindert dass es zu groß wird */
-  width: auto;
-  object-fit: cover;
-  flex-shrink: 0;
+  width: 50%;
 }
 
-.mantel-wrapper p {
-  max-width: 40%;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  flex-shrink: 1;
+.text_mantel {
+  max-width: 30%;
 }
 
 .container_walk {
-  opacity: 0;
-  visibility: hidden;
-  min-height: 100vh; /* KÜRZER = Video spielt SCHNELLER ab */
-  /* Aktuell: 200vh - reduziere auf 100vh oder 150vh */
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 5%;
   position: relative;
+  overflow: hidden; /* WICHTIG: Verhindert dass die Straße overflow verursacht */
+}
+
+#strasse_frontal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 130%; /* Etwas kleiner */
+  height: auto;
+  z-index: 0;
+  transform: translateX(100%); /* Startet außerhalb rechts */
+  will-change: transform; /* Performance-Optimierung */
 }
 
 #frau_walk {
   width: 20%;
   display: block;
   z-index: 1;
-  position: relative; /* WICHTIG für die x-Transformation */
-}
-
-#strasse_frontal {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  z-index: 0;
+  position: relative;
+  margin-top: 5vh;
 }
