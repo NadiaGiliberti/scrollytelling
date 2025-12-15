@@ -96,11 +96,20 @@ if (video) {
           { x: "100%" },  // Start: rechts außerhalb
           {
             x: "-100%",   // Ende: links außerhalb
-            duration: 1,
+            duration: 0.5,  // Erste Hälfte der Timeline
             ease: "none"
           },
           0  // Startet gleichzeitig mit Video (am Position 0 der Timeline)
         );
+
+        // Zoom auf frau_walk, sobald strasse_frontal verschwindet
+        walkTimeline.to("#frau_walk", {
+          scale: 10,  // Stärkerer Zoom-Faktor
+          y: "90%",  // Nach unten verschieben
+          transformOrigin: "center center",
+          duration: 0.5,  // Zweite Hälfte der Timeline
+          ease: "none"
+        }, 0.5);  // Startet wenn strasse bei 50% ist (also fast verschwunden)
       }
       
       // ScrollTrigger refreshen nach Initialisierung
