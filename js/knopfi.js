@@ -201,7 +201,7 @@ ScrollTrigger.create({
             top: "58vh",
             bottom: "auto",
             left: "28%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-50%) scale(10)",
             y: 0,
             zIndex: 100,
             opacity: 1
@@ -217,4 +217,58 @@ ScrollTrigger.create({
             zIndex: 100
         });
     }
+});
+
+// --- REGEN ANIMATION ---
+
+// Erstelle Regen-Spacer für die Regen-Animation
+const regenSpacer = document.createElement('div');
+regenSpacer.style.height = '200vh'; // Länge der Regen-Animation
+regenSpacer.id = 'regen-spacer';
+regenSpacer.style.position = 'relative';
+document.querySelector('main').appendChild(regenSpacer);
+
+// Erstelle viele Regentropfen
+const tropfenAnzahl = 40; // Anzahl der Regentropfen
+const tropfen = [];
+
+for (let i = 0; i < tropfenAnzahl; i++) {
+    const tropf = document.createElement('img');
+    tropf.src = 'images/skizzen/regen.png';
+    tropf.className = 'regentropfen';
+    tropf.style.position = 'fixed';
+    tropf.style.width = Math.random() * 40 + 30 + 'px'; // Zufällige Größe zwischen 30-70px
+    tropf.style.left = Math.random() * 100 + '%'; // Zufällige horizontale Position
+    tropf.style.top = '-100px'; // Startet über dem Bildschirm
+    tropf.style.opacity = '0';
+    tropf.style.zIndex = '90'; // Höher, damit sie über dem Hintergrund sind
+    tropf.style.pointerEvents = 'none';
+    tropf.style.filter = 'brightness(1.2)'; // Etwas heller machen
+    
+    document.body.appendChild(tropf);
+    tropfen.push(tropf);
+}
+
+// Timeline für Regen-Animation
+const regenTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#regen-spacer",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// Animiere jeden Tropfen
+tropfen.forEach((tropf, index) => {
+    const delay = (index / tropfenAnzahl) * 0.8; // Gestaffelte Starts
+    const duration = Math.random() * 0.4 + 0.5; // Zufällige Geschwindigkeit (langsamer)
+    const fallHöhe = window.innerHeight + 200; // Fällt über den ganzen Bildschirm
+    
+    regenTimeline.to(tropf, {
+        opacity: 0.95,
+        y: fallHöhe,
+        duration: duration,
+        ease: "none"
+    }, delay);
 });
