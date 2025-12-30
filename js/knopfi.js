@@ -1,5 +1,8 @@
 gsap.registerPlugin(ScrollTrigger);
 
+
+// --- SZENE 1 - MANTEL ZOOM  ---
+
 // 1. Erstelle den ersten Spacer (Mantel)
 const scrollSpacer = document.createElement('div');
 scrollSpacer.style.height = '200vh';
@@ -32,7 +35,7 @@ tl.to("#mantel", {
     opacity: 1
 }, 0.5);
 
-// --- BILD-SEQUENZ LOGIK ---
+// --- SZENE 2 - WALKCYCLE  ---
 
 const walkImg = document.querySelector("#frau_walk");
 const frameCount = 10; // Deine 10 Bilder pro Schrittzyklus
@@ -58,15 +61,9 @@ let playhead = { frame: 0 };
 
 // Zweiter Spacer (Die Länge des Spaziergangs)
 const walkSpacer = document.createElement('div');
-walkSpacer.style.height = '400vh'; // Volle Länge für Walk + Zoom
+walkSpacer.style.height = '500vh'; // Walk + Knopf fallen
 walkSpacer.id = 'walk-spacer';
 document.querySelector('main').appendChild(walkSpacer);
-
-// Dritter Spacer für den Übergang (wo der Knopf fällt)
-const transitionSpacer = document.createElement('div');
-transitionSpacer.style.height = '100vh'; // Platz für den Knopf-Fall
-transitionSpacer.id = 'transition-spacer';
-document.querySelector('main').appendChild(transitionSpacer);
 
 const walkTimeline = gsap.timeline({
     scrollTrigger: {
@@ -141,42 +138,83 @@ walkTimeline.to({}, {
     ease: "none"
 }, 0);
 
-// 4. Knopf fällt ab während des Zooms
+// 4. Knopf fällt bis 75vh
 walkTimeline.to(knopf, {
-    y: "80vh", // Fällt nach unten
-    rotation: 720, // Dreht sich beim Fallen
+    y: "75vh",
+    rotation: 1440,
     duration: 0.4,
     ease: "power2.in"
-}, 0.45); // Startet etwas früher als der Zoom
+}, 0.45);
 
-// 5. Walk-Container ausblenden am Ende
+// 5. Walk-Container ausblenden
 walkTimeline.to(".container_walk", {
     opacity: 0,
     pointerEvents: "none",
-    duration: 0.2
-}, 0.9); // Am Ende der Timeline
+    duration: 0.15
+}, 0.75);
 
-// Timeline für den Übergang zum Regen
-const transitionTimeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#transition-spacer",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 0.5,
-    }
-});
 
-// Regen-Container einblenden
-transitionTimeline.to(".container_regen", {
+// 6. Regen-Container einblenden
+walkTimeline.to(".container_regen", {
     opacity: 1,
     pointerEvents: "all",
-    duration: 0.3
-}, 0);
+    duration: 0.15
+}, 0.75);
 
-// Knopf fällt weiter
-transitionTimeline.to(knopf, {
-    y: "120vh",
-    rotation: 1440,
-    duration: 1,
-    ease: "power1.out"
-}, 0);
+// 7. Knopf verschwindet am Ende von container_walk
+walkTimeline.to(knopf, {
+    opacity: 0,
+    duration: 0.05
+}, 0.82);
+
+// 8. Knopf erscheint oben im container_regen
+walkTimeline.set(knopf, {
+    top: "2vh",
+    left: "28%",
+    y: 0,
+    transform: "translateX(-50%)",
+    position: "fixed"
+}, 0.85);
+
+walkTimeline.to(knopf, {
+    opacity: 1,
+    duration: 0.05
+}, 0.85);
+
+// 9. Knopf fällt runter im Regen-Container
+walkTimeline.to(knopf, {
+    top: "58vh",
+    rotation: 1800,
+    duration: 0.15,
+    ease: "power2.in"
+}, 0.85);
+
+// ScrollTrigger für das Andocken des Knopfes beim Vorwärts- und Rückwärts-Scrollen
+ScrollTrigger.create({
+    trigger: "#walk-spacer",
+    start: "99% top",
+    endTrigger: "body",
+    end: "bottom bottom",
+    onEnter: () => {
+        gsap.set(knopf, { 
+            position: "fixed", 
+            top: "58vh",
+            bottom: "auto",
+            left: "28%",
+            transform: "translateX(-50%)",
+            y: 0,
+            zIndex: 100,
+            opacity: 1
+        });
+    },
+    onLeaveBack: () => {
+        gsap.set(knopf, { 
+            position: "fixed", 
+            top: "auto",
+            bottom: "auto",
+            left: "auto",
+            transform: "none",
+            zIndex: 100
+        });
+    }
+});
