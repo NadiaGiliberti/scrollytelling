@@ -293,7 +293,7 @@ schuhTimeline.to(schuh, {
 
 // 2. Schuh bewegt sich und dreht sich gleichzeitig zum Knopf (kick)
 schuhTimeline.to(schuh, {
-    left: "20%",
+    left: "0%",
     rotation: 0,
     duration: 0.5,
     ease: "power1.inOut"
