@@ -5,7 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 // 1. Erstelle den ersten Spacer (Mantel)
 const scrollSpacer = document.createElement('div');
-scrollSpacer.style.height = '200vh';
 scrollSpacer.id = 'scroll-spacer';
 document.querySelector('main').prepend(scrollSpacer);
 
@@ -61,7 +60,6 @@ let playhead = { frame: 0 };
 
 // Zweiter Spacer (Die Länge des Spaziergangs)
 const walkSpacer = document.createElement('div');
-walkSpacer.style.height = '500vh'; // Walk + Knopf fallen
 walkSpacer.id = 'walk-spacer';
 document.querySelector('main').appendChild(walkSpacer);
 
@@ -127,7 +125,7 @@ const frau = document.querySelector("#frau_walk");
 function updateKnopfPosition() {
     const frauRect = frau.getBoundingClientRect();
     // Knopf am Mantel positionieren (mittig, etwas unterhalb der Mitte)
-    knopf.style.left = (frauRect.left + frauRect.width * 0.73) + 'px';
+    knopf.style.left = (frauRect.left + frauRect.width * 0.71) + 'px';
     knopf.style.top = (frauRect.top + frauRect.height * 0.4) + 'px';
 }
 
@@ -223,27 +221,19 @@ ScrollTrigger.create({
 
 // Erstelle Regen-Spacer für die Regen-Animation
 const regenSpacer = document.createElement('div');
-regenSpacer.style.height = '200vh'; // Länge der Regen-Animation
 regenSpacer.id = 'regen-spacer';
-regenSpacer.style.position = 'relative';
 document.querySelector('main').appendChild(regenSpacer);
 
 // Erstelle viele Regentropfen
-const tropfenAnzahl = 40; // Anzahl der Regentropfen
+const tropfenAnzahl = 50; // Anzahl der Regentropfen
 const tropfen = [];
 
 for (let i = 0; i < tropfenAnzahl; i++) {
     const tropf = document.createElement('img');
     tropf.src = 'images/skizzen/regen.png';
     tropf.className = 'regentropfen';
-    tropf.style.position = 'fixed';
     tropf.style.width = Math.random() * 40 + 30 + 'px'; // Zufällige Größe zwischen 30-70px
     tropf.style.left = Math.random() * 100 + '%'; // Zufällige horizontale Position
-    tropf.style.top = '-100px'; // Startet über dem Bildschirm
-    tropf.style.opacity = '0';
-    tropf.style.zIndex = '90'; // Höher, damit sie über dem Hintergrund sind
-    tropf.style.pointerEvents = 'none';
-    tropf.style.filter = 'brightness(1.2)'; // Etwas heller machen
     
     document.body.appendChild(tropf);
     tropfen.push(tropf);
@@ -264,10 +254,12 @@ tropfen.forEach((tropf, index) => {
     const delay = (index / tropfenAnzahl) * 0.8; // Gestaffelte Starts
     const duration = Math.random() * 0.4 + 0.5; // Zufällige Geschwindigkeit (langsamer)
     const fallHöhe = window.innerHeight + 200; // Fällt über den ganzen Bildschirm
+    const xBewegung = Math.random() * 100 - 50; // Zufällige horizontale Bewegung (-50 bis +50px)
     
     regenTimeline.to(tropf, {
-        opacity: 0.95,
+        opacity: 1,
         y: fallHöhe,
+        x: xBewegung,
         duration: duration,
         ease: "none"
     }, delay);

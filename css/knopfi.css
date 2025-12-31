@@ -99,4 +99,29 @@ html, body {
     object-fit: cover;
 }
 
+/* Scroll-Spacer für Szenen */
+
+#scroll-spacer {
+    height: 200vh;
+}
+
+#walk-spacer {
+    height: 500vh;
+}
+
+#regen-spacer {
+    height: 400vh;
+    position: relative;
+}
+
+/* Regentropfen */
+
+.regentropfen {
+    position: fixed;
+    top: -100px;
+    opacity: 1;
+    z-index: 110;
+    pointer-events: none;
+}
+
 
