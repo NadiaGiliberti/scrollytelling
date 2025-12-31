@@ -104,9 +104,9 @@ html, body {
 #schuh {
     width: 40%;
     position: fixed;
-    top: 20%;
+    top: 15%;
     left: -20%;
-    z-index: 90;
+    z-index: 110;
     opacity: 0;
     transform-origin: left top;
     transform: rotate(90deg);
