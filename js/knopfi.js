@@ -301,7 +301,7 @@ schuhTimeline.to(schuh, {
 
 // 3. Knopf beginnt nach rechts zu rollen beim Impact
 schuhTimeline.to(knopf, {
-    left: "80%",
+    left: "40%",
     rotation: "+=720",
     duration: 0.4,
     ease: "power1.out"
@@ -345,10 +345,35 @@ mauerTimeline.to(".container_mauer", {
     ease: "none"
 }, 0);
 
-// 3. Knopf rollt weiter nach rechts
+// 3. Knopf bleibt an Position und dreht sich weiter
 mauerTimeline.to(knopf, {
-    left: "50%",
     rotation: "+=1080",
-    duration: 1,
+    duration: 0.5,
     ease: "none"
 }, 0);
+
+// 4. Wahrzeichen einblenden nacheinander
+mauerTimeline.to("#muenster", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 0.5);
+
+mauerTimeline.to("#bundeshaus", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 0.6);
+
+mauerTimeline.to("#zytglogge", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 0.7);
+
+// 5. Knopf dreht sich weiter an seiner Position
+mauerTimeline.to(knopf, {
+    rotation: "+=1440",
+    duration: 0.5,
+    ease: "none"
+}, 0.5);

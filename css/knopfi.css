@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
   margin: 0;
@@ -6,7 +7,7 @@ html, body {
 }
 
 
-/* erste Szene mit mantel und zoom*/ 
+/* erste Szene mit mantel und zoom*/
 
 .container_mantel {
   display: flex;
@@ -18,7 +19,8 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 20; /* Erhöht */
+  z-index: 20;
+  /* Erhöht */
   pointer-events: none;
 }
 
@@ -30,7 +32,7 @@ html, body {
   max-width: 30%;
 }
 
-/* zweite Szene mit frau walkcycle und strasse*/ 
+/* zweite Szene mit frau walkcycle und strasse*/
 
 
 .container_walk {
@@ -43,20 +45,21 @@ html, body {
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: 10; /* Etwas niedriger als Mantel */
+  z-index: 10;
+  /* Etwas niedriger als Mantel */
   width: 100vw;
   opacity: 0;
   pointer-events: none;
 }
 
 #frau_walk {
-    width: 20%;
-    display: block;
-    z-index: 15;
-    position: relative;
-    margin-top: 5vh;
-    /* Verhindert, dass das Bild beim Wechseln "springt" */
-    object-fit: contain; 
+  width: 20%;
+  display: block;
+  z-index: 15;
+  position: relative;
+  margin-top: 5vh;
+  /* Verhindert, dass das Bild beim Wechseln "springt" */
+  object-fit: contain;
 }
 
 #strasse_frontal {
@@ -65,63 +68,64 @@ html, body {
   left: 0;
   width: 130%;
   height: auto;
-  z-index: 5; /* Niedriger als Video */
+  z-index: 5;
+  /* Niedriger als Video */
   transform: translateX(100%);
   will-change: transform;
 }
 
 #abfallender_knopf {
-    width: 0.5%;
-    position: fixed;
-    z-index: 100;
-    opacity: 0;
+  width: 0.5%;
+  position: fixed;
+  z-index: 100;
+  opacity: 0;
 }
 
 /* dritte Szene mit regen / knopf in pfütze */
 
 .container_regen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 5;
-    opacity: 0;
-    pointer-events: none;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .container_regen img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 
 /* Regentropfen */
 
 .regentropfen {
-    position: fixed;
-    top: -100px;
-    opacity: 1;
-    z-index: 110;
-    pointer-events: none;
+  position: fixed;
+  top: -100px;
+  opacity: 1;
+  z-index: 110;
+  pointer-events: none;
 }
 
 /* Schuh-Animation */
 
 #schuh {
-    width: 40%;
-    position: fixed;
-    top: 15%;
-    left: -20%;
-    z-index: 110;
-    opacity: 0;
-    transform-origin: left top;
-    transform: rotate(90deg);
-    pointer-events: none;
+  width: 40%;
+  position: fixed;
+  top: 15%;
+  left: -20%;
+  z-index: 110;
+  opacity: 0;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  pointer-events: none;
 }
 
 
@@ -129,50 +133,88 @@ html, body {
 /* vierte Szene mit mauer */
 
 .container_mauer {
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 100%;
-    width: 100vw;
-    z-index: 6;
-    opacity: 1;
-    pointer-events: none;
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  z-index: 6;
+  opacity: 1;
+  pointer-events: none;
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-.container_mauer img {
-    width: auto;
-    height: 40vh;
+
+.container_mauer_img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
 }
+
+#mauer {
+  width: auto;
+  height: 40vh;
+}
+
+/* Berner Wahrzeichen */
+.container_wahrzeichen {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  z-index: 1;
+}
+
+#muenster,
+#bundeshaus,
+#zytglogge {
+  opacity: 0;
+  height: 40vh;
+  width: auto;
+}
+
+#muenster {
+  transform: rotate(-20deg);
+}
+
+#zytglogge {
+  transform: rotate(20deg);
+}
+
 
 /* Scroll-Spacer für Szenen */
 
 #scroll-spacer {
-    height: 200vh;
+  height: 200vh;
 }
 
 #walk-spacer {
-    height: 500vh;
+  height: 500vh;
 }
 
 #regen-spacer {
-    height: 400vh;
-    position: relative;
+  height: 400vh;
+  position: relative;
 }
 
 #schuh-spacer {
-    height: 300vh;
-    position: relative;
+  height: 300vh;
+  position: relative;
 }
 
 #mauer-spacer {
-    height: 300vh;
-    position: relative;
+  height: 300vh;
+  position: relative;
 }
-
