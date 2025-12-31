@@ -99,6 +99,17 @@ html, body {
     object-fit: cover;
 }
 
+
+/* Regentropfen */
+
+.regentropfen {
+    position: fixed;
+    top: -100px;
+    opacity: 1;
+    z-index: 110;
+    pointer-events: none;
+}
+
 /* Schuh-Animation */
 
 #schuh {
@@ -111,6 +122,33 @@ html, body {
     transform-origin: left top;
     transform: rotate(90deg);
     pointer-events: none;
+}
+
+
+
+/* vierte Szene mit mauer */
+
+.container_mauer {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    z-index: 6;
+    opacity: 1;
+    pointer-events: none;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.container_mauer img {
+    width: auto;
+    height: 40vh;
 }
 
 /* Scroll-Spacer für Szenen */
@@ -133,14 +171,8 @@ html, body {
     position: relative;
 }
 
-/* Regentropfen */
-
-.regentropfen {
-    position: fixed;
-    top: -100px;
-    opacity: 1;
-    z-index: 110;
-    pointer-events: none;
+#mauer-spacer {
+    height: 300vh;
+    position: relative;
 }
-
 

@@ -306,3 +306,49 @@ schuhTimeline.to(knopf, {
     duration: 0.4,
     ease: "power1.out"
 }, 0.5);
+
+// --- MAUER SZENE (KNOPF ROLLT HORIZONTAL IN NÄCHSTEN CONTAINER) ---
+
+// Erstelle Spacer für Mauer-Animation
+const mauerSpacer = document.createElement('div');
+mauerSpacer.id = 'mauer-spacer';
+document.querySelector('main').appendChild(mauerSpacer);
+
+// Timeline für Mauer-Animation
+const mauerTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#mauer-spacer",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// 1. Schuh ausblenden
+mauerTimeline.to(schuh, {
+    opacity: 0,
+    duration: 0.2,
+    ease: "none"
+}, 0);
+
+// 2. Beide Container zusammen nach links schieben (Panorama-Effekt)
+mauerTimeline.to(".container_regen", {
+    left: "-100%",
+    duration: 1,
+    ease: "none"
+}, 0);
+
+mauerTimeline.to(".container_mauer", {
+    left: "0%",
+    pointerEvents: "all",
+    duration: 1,
+    ease: "none"
+}, 0);
+
+// 3. Knopf rollt weiter nach rechts
+mauerTimeline.to(knopf, {
+    left: "50%",
+    rotation: "+=1080",
+    duration: 1,
+    ease: "none"
+}, 0);
