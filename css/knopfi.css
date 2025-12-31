@@ -99,6 +99,20 @@ html, body {
     object-fit: cover;
 }
 
+/* Schuh-Animation */
+
+#schuh {
+    width: 40%;
+    position: fixed;
+    top: 20%;
+    left: -20%;
+    z-index: 90;
+    opacity: 0;
+    transform-origin: left top;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
 /* Scroll-Spacer für Szenen */
 
 #scroll-spacer {
@@ -111,6 +125,11 @@ html, body {
 
 #regen-spacer {
     height: 400vh;
+    position: relative;
+}
+
+#schuh-spacer {
+    height: 300vh;
     position: relative;
 }
 

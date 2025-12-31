@@ -264,3 +264,45 @@ tropfen.forEach((tropf, index) => {
         ease: "none"
     }, delay);
 });
+
+// --- SCHUH UND KNOPF ANIMATION (NACH REGEN) ---
+
+// Erstelle Spacer für Schuh-Animation
+const schuhSpacer = document.createElement('div');
+schuhSpacer.id = 'schuh-spacer';
+document.querySelector('main').appendChild(schuhSpacer);
+
+// Timeline für Schuh-Animation
+const schuhTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#schuh-spacer",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+const schuh = document.querySelector("#schuh");
+
+// 1. Schuh einblenden links
+schuhTimeline.to(schuh, {
+    opacity: 1,
+    duration: 0.1,
+    ease: "none"
+}, 0);
+
+// 2. Schuh bewegt sich und dreht sich gleichzeitig zum Knopf (kick)
+schuhTimeline.to(schuh, {
+    left: "20%",
+    rotation: 0,
+    duration: 0.5,
+    ease: "power1.inOut"
+}, 0.1);
+
+// 3. Knopf beginnt nach rechts zu rollen beim Impact
+schuhTimeline.to(knopf, {
+    left: "80%",
+    rotation: "+=720",
+    duration: 0.4,
+    ease: "power1.out"
+}, 0.5);
