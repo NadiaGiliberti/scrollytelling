@@ -557,6 +557,13 @@ katzeTimeline.to("#aussicht", {
     ease: "none"
 }, 2);
 
+// Text erscheint mit der Aussicht
+katzeTimeline.to(".text_aussicht", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 2);
+
 // 6. Container_katze und Knopf kommen wieder nach oben
 katzeTimeline.to(".container_katze", {
     top: "0%",
@@ -581,3 +588,87 @@ katzeTimeline.to(".container_katze", {
     duration: 0.3,
     ease: "none"
 }, 4);
+
+// --- VOGELPERSPEKTIVE SZENE (NACH AUSSICHT) ---
+
+// Erstelle Spacer für Vogelperspektive-Animation
+const vogelperspektiveSpacer = document.createElement('div');
+vogelperspektiveSpacer.id = 'vogelperspektive-spacer';
+document.querySelector('main').appendChild(vogelperspektiveSpacer);
+
+// Timeline für Vogelperspektive-Animation
+const vogelperspektiveTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#vogelperspektive-spacer",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// 1. Knopf fällt nach unten
+vogelperspektiveTimeline.to(knopf, {
+    top: "120vh",
+    rotation: "+=720",
+    duration: 0.3,
+    ease: "power2.in"
+}, 0);
+
+// 2. Alle Elemente gleichzeitig ausblenden (nachdem Knopf gefallen ist)
+vogelperspektiveTimeline.to("#aussicht", {
+    opacity: 0,
+    duration: 0.3,
+    ease: "none"
+}, 0.3);
+
+vogelperspektiveTimeline.to(".text_aussicht", {
+    opacity: 0,
+    duration: 0.3,
+    ease: "none"
+}, 0.3);
+
+vogelperspektiveTimeline.to(".container_treppe", {
+    opacity: 0,
+    duration: 0.3,
+    ease: "none"
+}, 0.3);
+
+vogelperspektiveTimeline.to(knopf, {
+    opacity: 0,
+    duration: 0.3,
+    ease: "none"
+}, 0.3);
+
+// 3. Vogelperspektive einblenden nach dem Ausblenden
+vogelperspektiveTimeline.to(".container_vogelperspektive", {
+    opacity: 1,
+    pointerEvents: "all",
+    duration: 0.5,
+    ease: "none"
+}, 0.3);
+
+// 4. Rosa Knopf fällt von oben ins Bild (nachdem Vogelperspektive eingeblendet wurde)
+vogelperspektiveTimeline.set(knopf, {
+    top: "-8vh",
+    left: "40%",
+    transform: "translateX(-50%) scale(15)",
+    opacity: 1,
+    rotation: 0
+}, 0.8);
+
+vogelperspektiveTimeline.to(knopf, {
+    top: "50vh",
+    rotation: 1440,
+    duration: 0.5,
+    ease: "power2.in"
+}, 0.8);
+
+// 5. Hand kommt von rechts ins Bild
+const hand = document.querySelector("#hand");
+
+vogelperspektiveTimeline.to(hand, {
+    opacity: 1,
+    right: "10%",
+    duration: 0.3,
+    ease: "power2.out"
+}, 2);
