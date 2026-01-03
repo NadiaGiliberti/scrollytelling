@@ -398,3 +398,48 @@ mauerTimeline.to(knopf, {
     duration: 0.5,
     ease: "none"
 }, 0.5);
+
+// 6. Text einblenden
+mauerTimeline.to(".text_mauer", {
+    opacity: 1,
+    duration: 0.2,
+    ease: "none"
+}, 0.8);
+
+// --- TREPPE SZENE (KNOPF ROLLT WEITER IN NÄCHSTEN CONTAINER) ---
+
+// Erstelle Spacer für Treppe-Animation
+const treppeSpacer = document.createElement('div');
+treppeSpacer.id = 'treppe-spacer';
+document.querySelector('main').appendChild(treppeSpacer);
+
+// Timeline für Treppe-Animation
+const treppeTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#treppe-spacer",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// 1. Beide Container zusammen nach links schieben (Panorama-Effekt)
+treppeTimeline.to(".container_mauer", {
+    left: "-100%",
+    duration: 1,
+    ease: "none"
+}, 0);
+
+treppeTimeline.to(".container_treppe", {
+    left: "0%",
+    pointerEvents: "all",
+    duration: 1,
+    ease: "none"
+}, 0);
+
+// 2. Knopf rollt weiter und dreht sich
+treppeTimeline.to(knopf, {
+    rotation: "+=1080",
+    duration: 1,
+    ease: "none"
+}, 0);

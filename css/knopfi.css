@@ -220,6 +220,43 @@ body {
   transform: rotate(20deg);
 }
 
+.text_mauer {
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 120;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+
+/* fünfte Szene mit treppe */
+
+.container_treppe {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  z-index: 7;
+  opacity: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#treppe {
+  width: 50%;
+  position: absolute;
+  top: 82%;
+  left: 25%;
+  transform: translate(-50%, -50%) scaleX(-1);
+  z-index: 110;
+}
 
 /* Scroll-Spacer für Szenen */
 
@@ -242,6 +279,11 @@ body {
 }
 
 #mauer-spacer {
+  height: 300vh;
+  position: relative;
+}
+
+#treppe-spacer {
   height: 300vh;
   position: relative;
 }
