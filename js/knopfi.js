@@ -465,18 +465,9 @@ treppeTimeline.to(knopf, {
 
 // Dritte Stufe
 treppeTimeline.to(knopf, {
-    top: "83vh",
+    top: "87vh",
     left: "45%",
     rotation: "+=180",
     duration: 0.05,
     ease: "power2.in"
 }, 0.9);
-
-// Vierte Stufe
-treppeTimeline.to(knopf, {
-    top: "90vh",
-    left: "50%",
-    rotation: "+=180",
-    duration: 0.05,
-    ease: "power2.in"
-}, 1);

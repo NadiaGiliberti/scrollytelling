@@ -258,6 +258,15 @@ body {
   z-index: 110;
 }
 
+#mauer_2 {
+  width: auto;
+  height: 40vh;
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  z-index: 3;
+}
+
 /* Scroll-Spacer für Szenen */
 
 #scroll-spacer {
