@@ -242,7 +242,7 @@ body {
   position: fixed;
   top: 0;
   left: 100%;
-  width: 100vw;
+  width: 200vw;
   z-index: 7;
   opacity: 1;
   pointer-events: none;
@@ -250,21 +250,62 @@ body {
 }
 
 #treppe {
-  width: 50%;
+  width: 30%;
   position: absolute;
-  top: 82%;
-  left: 25%;
+  top: 86%;
+  left: 15%;
   transform: translate(-50%, -50%) scaleX(-1);
   z-index: 110;
 }
 
 #mauer_2 {
-  width: auto;
-  height: 40vh;
+  width: 100vw;
   position: absolute;
   top: 90%;
-  left: 10%;
+  left: 0;
   z-index: 3;
+}
+
+#mauer_3 {
+  width: 100vw;
+  position: absolute;
+  top: 90%;
+  left: 100vw;
+  z-index: 3;
+}
+
+/* sechste Szene mit katze */
+
+.container_katze {
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  z-index: 6;
+  opacity: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#katze {
+  width: 20%;
+  position: absolute;
+  top: 45%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+}
+
+#katze_pfoten {
+  width: 15%;
+  position: absolute;
+  left: 70%;
+  transform: translateX(-50%);
+  z-index: 111;
 }
 
 /* Scroll-Spacer für Szenen */
@@ -293,6 +334,11 @@ body {
 }
 
 #treppe-spacer {
+  height: 300vh;
+  position: relative;
+}
+
+#katze-spacer {
   height: 300vh;
   position: relative;
 }

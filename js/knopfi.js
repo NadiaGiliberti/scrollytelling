@@ -471,3 +471,75 @@ treppeTimeline.to(knopf, {
     duration: 0.05,
     ease: "power2.in"
 }, 0.9);
+
+// --- KATZE SZENE (NACH TREPPE) ---
+
+// Erstelle Spacer für Katze-Animation
+const katzeSpacer = document.createElement('div');
+katzeSpacer.id = 'katze-spacer';
+document.querySelector('main').appendChild(katzeSpacer);
+
+// Timeline für Katze-Animation
+const katzeTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#katze-spacer",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// 1. Knopf rollt weiter nach rechts
+katzeTimeline.to(knopf, {
+    left: "70%",
+    rotation: "+=1080",
+    duration: 0.5,
+    ease: "none"
+}, 0);
+
+// 2. Mauer bewegt sich nach links (mehr Platz für Katze rechts)
+katzeTimeline.to(".container_treppe", {
+    left: "-30%",
+    duration: 0.5,
+    ease: "none"
+}, 0);
+
+// mauer_2 und mauer_3 bewegen sich mit dem Container mit
+katzeTimeline.to("#mauer_2", {
+    x: 0,
+    duration: 0.5,
+    ease: "none"
+}, 0);
+
+katzeTimeline.to("#mauer_3", {
+    x: 0,
+    duration: 0.5,
+    ease: "none"
+}, 0);
+
+// 3. Katze schiebt sich von unten nach oben an der Position des Knopfes
+katzeTimeline.to(".container_katze", {
+    top: "0%",
+    pointerEvents: "all",
+    duration: 0.3,
+    ease: "none"
+}, 0.5);
+
+
+// 4. Container_katze und Knopf gehen zusammen hinter der Mauer nach unten
+// Knopf geht hinter die Mauer (z-index ändern)
+katzeTimeline.set(knopf, {
+    zIndex: 2
+}, 1.5);
+
+katzeTimeline.to(".container_katze", {
+    top: "100%",
+    duration: 0.3,
+    ease: "none"
+}, 1.5);
+
+katzeTimeline.to(knopf, {
+    top: "150vh",
+    duration: 0.3,
+    ease: "none"
+}, 1.5);
