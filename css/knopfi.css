@@ -308,6 +308,19 @@ body {
   z-index: 111;
 }
 
+/* Aussicht hinter der Mauer */
+#aussicht {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+
 /* Scroll-Spacer für Szenen */
 
 #scroll-spacer {

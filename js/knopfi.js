@@ -543,3 +543,41 @@ katzeTimeline.to(knopf, {
     duration: 0.3,
     ease: "none"
 }, 1.5);
+
+// 5. Mauer zur Seite schieben und Aussicht zeigen
+katzeTimeline.to(".container_treppe", {
+    left: "-100%",
+    duration: 0.5,
+    ease: "none"
+}, 2);
+
+katzeTimeline.to("#aussicht", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 2);
+
+// 6. Container_katze und Knopf kommen wieder nach oben
+katzeTimeline.to(".container_katze", {
+    top: "0%",
+    duration: 0.3,
+    ease: "none"
+}, 2.5);
+
+katzeTimeline.to(knopf, {
+    top: "87vh",
+    duration: 0.3,
+    ease: "none"
+}, 2.5);
+
+// Knopf kommt wieder vor die Mauer (z-index ändern nach der Bewegung)
+katzeTimeline.set(knopf, {
+    zIndex: 100
+}, 2.8);
+
+// 7. Katze verschwindet wieder nach unten, Knopf bleibt
+katzeTimeline.to(".container_katze", {
+    top: "100%",
+    duration: 0.3,
+    ease: "none"
+}, 4);
