@@ -437,9 +437,46 @@ treppeTimeline.to(".container_treppe", {
     ease: "none"
 }, 0);
 
-// 2. Knopf rollt weiter und dreht sich
+// 2. Knopf rollt weiter während Container sich bewegen
 treppeTimeline.to(knopf, {
     rotation: "+=1080",
     duration: 1,
     ease: "none"
 }, 0);
+
+// 3. Knopf fällt die Treppe hinunter (4 Stufen) - nach der Container-Bewegung
+// Erste Stufe
+treppeTimeline.to(knopf, {
+    top: "65vh",
+    left: "35%",
+    rotation: "+=180",
+    duration: 0.05,
+    ease: "power2.in"
+}, 0.7);
+
+// Zweite Stufe
+treppeTimeline.to(knopf, {
+    top: "80vh",
+    left: "40%",
+    rotation: "+=180",
+    duration: 0.05,
+    ease: "power2.in"
+}, 0.8);
+
+// Dritte Stufe
+treppeTimeline.to(knopf, {
+    top: "83vh",
+    left: "45%",
+    rotation: "+=180",
+    duration: 0.05,
+    ease: "power2.in"
+}, 0.9);
+
+// Vierte Stufe
+treppeTimeline.to(knopf, {
+    top: "90vh",
+    left: "50%",
+    rotation: "+=180",
+    duration: 0.05,
+    ease: "power2.in"
+}, 1);
