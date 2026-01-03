@@ -90,13 +90,20 @@ const strasse = document.querySelector("#strasse_frontal");
 if (strasse) {
     walkTimeline.fromTo(strasse,
         { x: "100%" },
-        { 
-            x: "-100%", 
+        {
+            x: "-100%",
             duration: 0.6, // Fährt etwas länger als die Hälfte
-            ease: "none" 
+            ease: "none"
         },
         0 // Startet auch bei 0
     );
+
+    // Text einblenden, bevor Straße ganz verschwindet (bei 0.5)
+    walkTimeline.to(".text_fallen", {
+        opacity: 1,
+        duration: 0.2,
+        ease: "none"
+    }, 0.5);
 
     // 3. Der Zoom auf die Frau (Startet bei 0.5 und geht bis zum Ende)
     walkTimeline.to("#frau_walk", {
@@ -106,7 +113,7 @@ if (strasse) {
         duration: 0.5, // Die zweite Hälfte der Timeline
         ease: "none"
     }, 0.5); // Startet bei der Hälfte (0.5) der Timeline
-    
+
     // Knopf vergrößert sich mit der Frau
     walkTimeline.to("#abfallender_knopf", {
         scale: 10,
@@ -284,28 +291,42 @@ const schuhTimeline = gsap.timeline({
 
 const schuh = document.querySelector("#schuh");
 
-// 1. Schuh einblenden links
-schuhTimeline.to(schuh, {
+// 1. Text einblenden vor dem Schuh
+schuhTimeline.to(".text_schuh", {
     opacity: 1,
     duration: 0.1,
     ease: "none"
 }, 0);
 
-// 2. Schuh bewegt sich und dreht sich gleichzeitig zum Knopf (kick)
+// 2. Schuh einblenden links kurz nach dem Text
+schuhTimeline.to(schuh, {
+    opacity: 1,
+    duration: 0.1,
+    ease: "none"
+}, 0.05);
+
+// 3. Schuh bewegt sich und dreht sich gleichzeitig zum Knopf (kick)
 schuhTimeline.to(schuh, {
     left: "0%",
     rotation: 0,
     duration: 0.5,
     ease: "power1.inOut"
-}, 0.1);
+}, 0.15);
 
-// 3. Knopf beginnt nach rechts zu rollen beim Impact
+// 4. Text ausblenden während Schuh sich bewegt
+schuhTimeline.to(".text_schuh", {
+    opacity: 0,
+    duration: 0.2,
+    ease: "none"
+}, 0.15);
+
+// 5. Knopf beginnt nach rechts zu rollen beim Impact
 schuhTimeline.to(knopf, {
     left: "40%",
     rotation: "+=720",
     duration: 0.4,
     ease: "power1.out"
-}, 0.5);
+}, 0.55);
 
 // --- MAUER SZENE (KNOPF ROLLT HORIZONTAL IN NÄCHSTEN CONTAINER) ---
 

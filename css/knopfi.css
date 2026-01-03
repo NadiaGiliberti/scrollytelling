@@ -74,6 +74,20 @@ body {
   will-change: transform;
 }
 
+.text_fallen {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  z-index: 20;
+  opacity: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: right;
+  max-width: 40%;
+  pointer-events: none;
+}
+
 #abfallender_knopf {
   width: 0.5%;
   position: fixed;
@@ -125,6 +139,20 @@ body {
   opacity: 0;
   transform-origin: left top;
   transform: rotate(90deg);
+  pointer-events: none;
+}
+
+.text_schuh {
+  position: fixed;
+  top: 44%;
+  right: 1%;
+  transform: translateY(-50%);
+  z-index: 120;
+  opacity: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: right;
+  max-width: 50%;
   pointer-events: none;
 }
 
