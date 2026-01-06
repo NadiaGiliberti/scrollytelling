@@ -567,27 +567,29 @@ katzeTimeline.to(".text_aussicht", {
 // 6. Container_katze und Knopf kommen wieder nach oben
 katzeTimeline.to(".container_katze", {
     top: "0%",
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 2.5);
 
 katzeTimeline.to(knopf, {
     top: "87vh",
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 2.5);
 
 // Knopf kommt wieder vor die Mauer (z-index ändern nach der Bewegung)
 katzeTimeline.set(knopf, {
     zIndex: 100
-}, 2.8);
+}, 3);
 
 // 7. Katze verschwindet wieder nach unten, Knopf bleibt
 katzeTimeline.to(".container_katze", {
     top: "100%",
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 4);
+
+
 
 // --- VOGELPERSPEKTIVE SZENE (NACH AUSSICHT) ---
 
@@ -653,7 +655,8 @@ vogelperspektiveTimeline.set(knopf, {
     left: "40%",
     transform: "translateX(-50%) scale(15)",
     opacity: 1,
-    rotation: 0
+    rotation: 0,
+    zIndex: 50
 }, 0.8);
 
 vogelperspektiveTimeline.to(knopf, {
@@ -666,9 +669,28 @@ vogelperspektiveTimeline.to(knopf, {
 // 5. Hand kommt von rechts ins Bild
 const hand = document.querySelector("#hand");
 
+// Z-index für Hand explizit setzen
+vogelperspektiveTimeline.set(hand, {
+    zIndex: 500
+}, 2);
+
 vogelperspektiveTimeline.to(hand, {
     opacity: 1,
     right: "10%",
-    duration: 0.3,
+    scale: 1.5,
+    duration: 1,
     ease: "power2.out"
 }, 2);
+
+// 6. Hand und Knopf gehen zusammen nach rechts aus dem Bild
+vogelperspektiveTimeline.to(hand, {
+    right: "-100%",
+    duration: 0.8,
+    ease: "power1.in"
+}, 3);
+
+vogelperspektiveTimeline.to(knopf, {
+    left: "150%",
+    duration: 0.8,
+    ease: "power1.in"
+}, 3);
