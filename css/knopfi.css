@@ -274,6 +274,20 @@ body {
   z-index: 3;
 }
 
+.text_treppe {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 120;
+  opacity: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 60%;
+  pointer-events: none;
+}
+
 /* sechste Szene mit katze */
 
 .container_katze {

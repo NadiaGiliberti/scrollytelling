@@ -444,6 +444,13 @@ treppeTimeline.to(knopf, {
     ease: "none"
 }, 0);
 
+// 2.5 Text einblenden wenn wir bei der Treppe sind
+treppeTimeline.to(".text_treppe", {
+    opacity: 1,
+    duration: 0.2,
+    ease: "none"
+}, 0.7);
+
 // 3. Knopf fällt die Treppe hinunter (4 Stufen) - nach der Container-Bewegung
 // Erste Stufe
 treppeTimeline.to(knopf, {
@@ -471,6 +478,13 @@ treppeTimeline.to(knopf, {
     duration: 0.05,
     ease: "power2.in"
 }, 0.9);
+
+// Text ausblenden am Ende der Treppe-Szene
+treppeTimeline.to(".text_treppe", {
+    opacity: 0,
+    duration: 0.2,
+    ease: "none"
+}, 1.5);
 
 // --- KATZE SZENE (NACH TREPPE) ---
 
