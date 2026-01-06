@@ -708,3 +708,35 @@ vogelperspektiveTimeline.to(knopf, {
     duration: 0.8,
     ease: "power1.in"
 }, 3);
+
+// --- NÄHMASCHINE SZENE (NACH VOGELPERSPEKTIVE) ---
+
+// Erstelle Spacer für Nähmaschine-Animation
+const naehenSpacer = document.createElement('div');
+naehenSpacer.id = 'naehen-spacer';
+document.querySelector('main').appendChild(naehenSpacer);
+
+// Timeline für Nähmaschine-Animation
+const naehenTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#naehen-spacer",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// 1. Vogelperspektive ausblenden und Nähmaschine einblenden beim Scrollen
+naehenTimeline.to(".container_vogelperspektive", {
+    opacity: 0,
+    pointerEvents: "none",
+    duration: 0.3,
+    ease: "none"
+}, 0);
+
+naehenTimeline.to(".container_naehen", {
+    opacity: 1,
+    pointerEvents: "all",
+    duration: 0.3,
+    ease: "none"
+}, 0);
