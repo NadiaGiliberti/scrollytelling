@@ -821,3 +821,48 @@ teddyTimeline.to("#teddy", {
     duration: 0.3,
     ease: "none"
 }, 0);
+
+// Text neben Teddy einblenden
+teddyTimeline.to(".text_teddy", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 0);
+
+// --- FIN SZENE (NACH TEDDY) ---
+
+// Erstelle Spacer für Fin-Animation
+const finSpacer = document.createElement('div');
+finSpacer.id = 'fin-spacer';
+document.querySelector('main').appendChild(finSpacer);
+
+// Timeline für Fin-Animation
+const finTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#fin-spacer",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// Teddy und Text ausblenden
+finTimeline.to("#teddy", {
+    opacity: 0,
+    pointerEvents: "none",
+    duration: 0.3,
+    ease: "none"
+}, 0);
+
+finTimeline.to(".text_teddy", {
+    opacity: 0,
+    duration: 0.3,
+    ease: "none"
+}, 0);
+
+// "la fin" einblenden
+finTimeline.to("h2", {
+    opacity: 1,
+    duration: 0.3,
+    ease: "none"
+}, 0.3);
