@@ -755,3 +755,69 @@ naehenTimeline.to(".container_naehen", {
     duration: 0.3,
     ease: "none"
 }, 0);
+
+// Nadel-Animation (wie Walk-Cycle)
+const nadelImg = document.querySelector("#nadel_gif");
+const nadelFrameCount = 28; // 28 Frames
+const nadelLoopCount = 3; // Anzahl der Wiederholungen
+const nadelTotalFrames = nadelFrameCount * nadelLoopCount;
+
+// Array mit Nadel-Frame-Pfaden erstellen
+const nadelImages = [];
+for (let i = 1; i <= nadelFrameCount; i++) {
+    nadelImages.push(`images/skizzen/nadel gif/Nadel_Frame${i}.png`);
+}
+
+// Nadel-Bilder vorladen
+nadelImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
+let nadelPlayhead = { frame: 0 };
+
+// Nadel-Animation beim Scrollen (Frames wechseln)
+naehenTimeline.to(nadelPlayhead, {
+    frame: nadelTotalFrames - 1,
+    ease: "none",
+    duration: 0.7, // Animation läuft 70% der Timeline
+    onUpdate: () => {
+        const currentFrameIndex = Math.floor(nadelPlayhead.frame) % nadelFrameCount;
+        if (nadelImg && nadelImg.src !== nadelImages[currentFrameIndex]) {
+            nadelImg.src = nadelImages[currentFrameIndex];
+        }
+    }
+}, 0);
+
+// Container_naehen beginnt zu verblassen während Nadel-Animation noch läuft
+naehenTimeline.to(".container_naehen", {
+    opacity: 0,
+    pointerEvents: "none",
+    duration: 0.3,
+    ease: "none"
+}, 0.6); // Startet bei 60% der Timeline
+
+// --- TEDDY SZENE (NACH NÄHMASCHINE) ---
+
+// Erstelle Spacer für Teddy-Animation
+const teddySpacer = document.createElement('div');
+teddySpacer.id = 'teddy-spacer';
+document.querySelector('main').appendChild(teddySpacer);
+
+// Timeline für Teddy-Animation
+const teddyTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#teddy-spacer",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+    }
+});
+
+// Teddy einblenden (container_naehen verblasst bereits in naehenTimeline)
+teddyTimeline.to("#teddy", {
+    opacity: 1,
+    pointerEvents: "all",
+    duration: 0.3,
+    ease: "none"
+}, 0);
