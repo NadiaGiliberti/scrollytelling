@@ -14,7 +14,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-image: url('../images/background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
   z-index: 9999;
   justify-content: center;
   align-items: center;
@@ -25,6 +27,10 @@ body {
 }
 
 .mobile-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: white;
   padding: 2rem;
@@ -32,12 +38,17 @@ body {
 }
 
 .mobile-message h2 {
-  font-size: 1.8rem;
+  font-family: 'frijole';
+  font-weight: 400;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: #DB97C7;
   margin-bottom: 1rem;
 }
 
 .mobile-message p {
-  font-size: 1.1rem;
+  font-family: 'arial', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   line-height: 1.6;
   margin: 0.5rem 0;
 }
