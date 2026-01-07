@@ -97,3 +97,43 @@ h1 {
     opacity: 0;
     position: relative;
 }
+
+
+/* MEDIA QUERIES FÜR RESPONSIVE DESIGN */
+
+/* Tablets und kleine Laptops */
+@media (max-width: 768px) {
+    .buttons {
+        gap: 10%;
+    }
+
+    .button {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        padding: 3% 6%;
+        margin-top: 8%;
+    }
+}
+
+/* Mobile Geräte */
+@media (max-width: 480px) {
+    h1 {
+        font-size: clamp(3rem, 8vw, 4rem);
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .button {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+        margin-top: 0;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+}
+

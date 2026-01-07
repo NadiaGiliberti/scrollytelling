@@ -1,5 +1,20 @@
 gsap.registerPlugin(ScrollTrigger);
 
+// --- MOBILE DETECTION ---
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        || window.innerWidth <= 1024;
+}
+
+// Zeige Overlay bei mobilen Geräten
+if (isMobileDevice()) {
+    const overlay = document.getElementById('mobile-overlay');
+    if (overlay) {
+        overlay.classList.add('show');
+        // Verhindere Scrollen auf mobilen Geräten
+        document.body.style.overflow = 'hidden';
+    }
+}
 
 // --- SZENE 1 - MANTEL ZOOM  ---
 
