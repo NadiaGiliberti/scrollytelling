@@ -685,7 +685,7 @@ vogelperspektiveTimeline.set(knopf, {
     transform: "translateX(-50%) scale(15)",
     opacity: 1,
     rotation: 0,
-    zIndex: 50
+    zIndex: 40
 }, 0.8);
 
 vogelperspektiveTimeline.to(knopf, {
@@ -698,9 +698,9 @@ vogelperspektiveTimeline.to(knopf, {
 // 5. Hand kommt von rechts ins Bild
 const hand = document.querySelector("#hand");
 
-// Z-index für Hand explizit setzen
+// Z-index für Hand explizit setzen (höchster z-index - über allem)
 vogelperspektiveTimeline.set(hand, {
-    zIndex: 500
+    zIndex: 9999
 }, 2);
 
 vogelperspektiveTimeline.to(hand, {
