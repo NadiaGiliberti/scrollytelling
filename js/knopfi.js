@@ -793,6 +793,13 @@ naehenTimeline.to(".container_naehen", {
     ease: "none"
 }, 0);
 
+// Nadel einblenden nach weiterem Scrollen
+naehenTimeline.to("#nadel_gif", {
+    opacity: 1,
+    duration: 0.2,
+    ease: "none"
+}, 0.3);
+
 // Nadel-Animation (wie Walk-Cycle)
 const nadelImg = document.querySelector("#nadel_gif");
 const nadelFrameCount = 28; // 28 Frames
@@ -817,14 +824,14 @@ let nadelPlayhead = { frame: 0 };
 naehenTimeline.to(nadelPlayhead, {
     frame: nadelTotalFrames - 1,
     ease: "none",
-    duration: 0.7, // Animation läuft 70% der Timeline
+    duration: 0.5,
     onUpdate: () => {
         const currentFrameIndex = Math.floor(nadelPlayhead.frame) % nadelFrameCount;
         if (nadelImg && nadelImg.src !== nadelImages[currentFrameIndex]) {
             nadelImg.src = nadelImages[currentFrameIndex];
         }
     }
-}, 0);
+}, 0.3);
 
 // Container_naehen beginnt zu verblassen während Nadel-Animation noch läuft
 naehenTimeline.to(".container_naehen", {
@@ -897,8 +904,8 @@ finTimeline.to(".text_teddy", {
     ease: "none"
 }, 0);
 
-// "la fin" einblenden
-finTimeline.to("h2", {
+// "la fin" Container einblenden
+finTimeline.to(".container_fin", {
     opacity: 1,
     duration: 0.3,
     ease: "none"
