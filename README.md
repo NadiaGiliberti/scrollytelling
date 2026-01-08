@@ -1,16 +1,27 @@
-# scrollytelling
+# Scrollytelling Website "Bouton en fuite"
 
-# Kurzbeschreibung
-Dieses Projekt ist ein interaktives Scrollytelling, das die Geschichte eines verlorenen Knopfes in der Stadt Bern erzählt. Der Fokus liegt auf der technischen Umsetzung einer linearen, scrollbasierten Erzählung, bei der Animationen und Szenenwechsel direkt an das Scrollverhalten der Nutzer:innen gekoppelt sind. Durch gezielte Trigger und Timelines werden Bilder und grafische Elemente dynamisch eingeblendet, bewegt und ausgeblendet, um den narrativen Verlauf visuell zu unterstützen.
+## Team
+- Suena Fischer
+- Nadia Giliberti
 
-# Learnings
-Während der Umsetzung konnten wir wertvolle Erfahrungen im Bereich scrollbasierter Animationen sammeln. Besonders das Arbeiten mit Timelines, ScrollTriggern und der Synchronisation von Animationen mit dem Scrollverhalten erwies sich als zentral. Zudem lernten wir, Story und Code enger miteinander zu verzahnen und Animationen so zu planen, dass sie nicht nur technisch funktionieren, sondern auch dramaturgisch sinnvoll sind. Iteratives Arbeiten und kontinuierliches Testen waren dabei entscheidend für den Fortschritt.
+## Kurzbeschreibung
+Unsere Website erzählt die Geschichte eines verlorenen Knopfes in der Stadt Bern als interaktives Scrollytelling. 
+Die Erzählung ist vollständig an das Scrollverhalten der Nutzer:innen gebunden. Animationen und Szenenwechsel reagieren direkt auf das Scrollen und lassen Bilder sowie grafische Elemente erscheinen, sich bewegen und wieder verschwinden.
 
-# Schwierigkeiten
-Die grössten Herausforderungen lagen in der Koordination von Layout, Animation und Scroll-Logik. Kleine Änderungen im Design oder in der Abfolge der Szenen hatten oft unerwartete Auswirkungen auf das Scrollverhalten und die Animationen. Auch das Timing der Übergänge sowie die Performance bei komplexeren Animationen erforderten mehrere Anpassungen. Zudem war es nicht immer einfach, eine saubere und übersichtliche Code-Struktur beizubehalten, während sich das Projekt inhaltlich weiterentwickelte.
+Die Website entstand in Verbindung mit dem Modul Visualisieren 5. Dort lag der Fokus auf einer Erzählung sowie auf der Erstellung von Bildern. Aufgabe war es, etwas Kleines gross zu machen und die Geschichte in einer anderen Sprache zu erzählen. Daher wird die Geschichte auf unserer Website in einer anderen Sprache präsentiert.
 
-# Ressourcen
-Für die technische Umsetzung nutzten wir hauptsächlich die GSAP-Library, insbesondere das ScrollTrigger-Plugin für die Steuerung der Animationen. Als zusätzliche Unterstützung diente claude.ai, das uns beim Debugging, bei der Strukturierung des Codes und bei der Lösungsfindung für spezifische Programmierprobleme half. Weitere Ressourcen umfassten Online-Dokumentationen und Tutorials zur Arbeit mit scrollbasierten Animationen.
+## Learnings
+Umgang mit GSAP: Während der Umsetzung haben wir viel über scrollbasierte Animationen gelernt. Besonders wichtig war der Einsatz von Timelines, ScrollTriggern und die Abstimmung der Animationen auf das Scrollen. Ausserdem haben wir gelernt, Story und Code eng miteinander zu verbinden und Animationen so zu planen, dass sie nicht nur technisch funktionieren, sondern auch gut zur Geschichte passen. Schrittweises Arbeiten und ständiges Testen waren dabei entscheidend für unseren Fortschritt.
 
-# Zusätzliches
-Wir haben uns dazu entschieden in der Mobile-Ansicht einen Hinweis darauf zu machen, dass man auf die Website nur von einem Desktop zugreifen kann. Samuel Rhyner hat uns zu Beginn des Projekts auch gesagt, dass unser Scrollytelling nicht responsive sein muss. Deshalb finden wir den Hinweis in der Mobile-Ansicht eine gute Lösung.
+## Schwierigkeiten
+Die grössten Herausforderungen lagen darin, Layout, Animationen und Scroll-Logik aufeinander abzustimmen. Kleine Änderungen im Design oder in der Reihenfolge der Szenen konnten unerwartete Auswirkungen auf das Scrollverhalten und bereits funktionierende Animationen haben. Auch das Timing der Übergänge und die Performance bei komplexeren Animationen mussten mehrfach angepasst werden. Ausserdem war es nicht immer leicht, den Code übersichtlich und sauber zu halten, während sich das Projekt inhaltlich weiterentwickelte.
+### Known Bugs
+Bei zu schnellem Scrollen kann es vorkommen dass ein Bild stecken bleibt und weiterhin angezeigt wird obwohl eigentlich dieses schon ausgeblendet weden sollte. 
+
+## Ressourcen
+- [GSAP](https://gsap.com/) <br>Insbesondere das ScrollTrigger-Plugin und die Cheatsheets
+- [Claude](https://claude.ai/)
+- Coachings bei Dozenten
+
+## Zusätzliches
+In Absprache mit Samuel Rhyner haben wir entschieden, dass unsere Scrollytelling-Website nicht responsiv sein muss. Auf dem Desktop entfaltet sie ihre volle Wirkung, daher erscheint eine mobile Version wenig sinnvoll. In der mobilen Ansicht haben wir daher einen Hinweis eingefügt, dass die Nutzung am besten auf einem Desktop erfolgt.
