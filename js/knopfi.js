@@ -6,15 +6,25 @@ function isMobileDevice() {
         || window.innerWidth <= 1024;
 }
 
-// Zeige Overlay bei mobilen Geräten
-if (isMobileDevice()) {
+// Funktion zum Aktualisieren des Mobile Overlays
+function updateMobileOverlay() {
     const overlay = document.getElementById('mobile-overlay');
     if (overlay) {
-        overlay.classList.add('show');
-        // Verhindere Scrollen auf mobilen Geräten
-        document.body.style.overflow = 'hidden';
+        if (isMobileDevice()) {
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        } else {
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
     }
 }
+
+// Zeige Overlay bei mobilen Geräten beim Laden
+updateMobileOverlay();
+
+// Update bei Fenstergrößenänderung
+window.addEventListener('resize', updateMobileOverlay);
 
 // --- SZENE 1 - MANTEL ZOOM  ---
 
@@ -765,7 +775,7 @@ const nadelTotalFrames = nadelFrameCount * nadelLoopCount;
 // Array mit Nadel-Frame-Pfaden erstellen
 const nadelImages = [];
 for (let i = 1; i <= nadelFrameCount; i++) {
-    nadelImages.push(`images/skizzen/nadel gif/Nadel_Frame${i}.png`);
+    nadelImages.push(`images/skizzen/nadel_gif/Nadel_Frame${i}.png`);
 }
 
 // Nadel-Bilder vorladen

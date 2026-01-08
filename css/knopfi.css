@@ -543,7 +543,7 @@ body {
 
 /* Ende - "la fin" */
 
-h2 {
+#fin-heading {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -561,5 +561,41 @@ h2 {
 #fin-spacer {
   height: 200vh;
   position: relative;
+}
+
+/* RESPONSIVE DESIGN - TABLET & MOBILE */
+
+@media (max-width: 1024px) {
+  /* Verstecke alle Animationen und zeige nur das Mobile Overlay */
+  .container_mantel,
+  .container_walk,
+  .container_regen,
+  .container_mauer,
+  .container_treppe,
+  .container_katze,
+  .container_vogelperspektive,
+  .container_naehen {
+    display: none !important;
+  }
+
+  /* Spacer minimal halten */
+  #scroll-spacer,
+  #walk-spacer,
+  #regen-spacer,
+  #schuh-spacer,
+  #mauer-spacer,
+  #treppe-spacer,
+  #katze-spacer,
+  #vogelperspektive-spacer,
+  #naehen-spacer,
+  #teddy-spacer,
+  #fin-spacer {
+    height: 0 !important;
+  }
+
+  /* Main kann normal scrollbar */
+  main {
+    overflow-x: visible;
+  }
 }
 
