@@ -414,19 +414,19 @@ mauerTimeline.to(knopf, {
 // 4. Wahrzeichen einblenden nacheinander
 mauerTimeline.to("#muenster", {
     opacity: 1,
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 0.5);
 
 mauerTimeline.to("#bundeshaus", {
     opacity: 1,
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 0.6);
 
 mauerTimeline.to("#zytglogge", {
     opacity: 1,
-    duration: 0.3,
+    duration: 0.5,
     ease: "none"
 }, 0.7);
 

@@ -206,7 +206,7 @@ body {
 .text_schuh {
   position: fixed;
   top: 44%;
-  right: 1%;
+  right: 5%;
   transform: translateY(-50%);
   z-index: 120;
   opacity: 0;
@@ -273,12 +273,17 @@ body {
   width: auto;
 }
 
+#bundeshaus {
+  z-index: 10;
+}
+
 #muenster {
-  transform: rotate(-20deg);
+  transform: rotate(-15deg) translateY(5%);
 }
 
 #zytglogge {
-  transform: rotate(20deg);
+  transform: rotate(15deg) translateY(5%);
+  height: 45vh;
 }
 
 .text_mauer {
@@ -464,7 +469,7 @@ body {
 }
 
 #mauer-spacer {
-  height: 300vh;
+  height: 150vh;
   position: relative;
 }
 
