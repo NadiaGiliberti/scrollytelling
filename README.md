@@ -17,6 +17,7 @@ Umgang mit GSAP: Während der Umsetzung haben wir viel über scrollbasierte Anim
 Die grössten Herausforderungen lagen darin, Layout, Animationen und Scroll-Logik aufeinander abzustimmen. Kleine Änderungen im Design oder in der Reihenfolge der Szenen konnten unerwartete Auswirkungen auf das Scrollverhalten und bereits funktionierende Animationen haben. Auch das Timing der Übergänge und die Performance bei komplexeren Animationen mussten mehrfach angepasst werden. Ausserdem war es nicht immer leicht, den Code übersichtlich und sauber zu halten, während sich das Projekt inhaltlich weiterentwickelte.
 ### Known Bugs
 Bei zu schnellem Scrollen kann es vorkommen dass ein Bild stecken bleibt und weiterhin angezeigt wird obwohl eigentlich dieses schon ausgeblendet weden sollte. 
+Zudem haben wir leider erst kurz vor Abgabe bemerkt, dass die Scrollytelling Website auf Safari nur bedingt funktioniert. Da wir beide Windows-Geräte haben konnten wir das leider nicht testen / beheben.  
 
 ## Ressourcen
 - [GSAP](https://gsap.com/) <br>Insbesondere das ScrollTrigger-Plugin und die Cheatsheets
