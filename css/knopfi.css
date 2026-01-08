@@ -178,10 +178,10 @@ body {
 /* Schuh-Animation */
 
 #schuh {
-  width: 40%;
+  width: 80%;
   position: fixed;
-  top: 15%;
-  left: -20%;
+  top: -70%;
+  left: -100%;
   z-index: 110;
   opacity: 0;
   transform-origin: left top;
