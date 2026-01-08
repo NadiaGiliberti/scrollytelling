@@ -72,7 +72,9 @@ body {
 }
 
 #mantel {
-  width: 30%;
+ height: 100vh;
+  width: auto;
+  object-fit: contain;
 }
 
 .text_mantel {
