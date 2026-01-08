@@ -182,7 +182,8 @@ body {
 #schuh {
   width: 80%;
   position: fixed;
-  top: -70%;
+  /* Der Schuh wird so positioniert, dass der Fuß (unteres Ende) etwa bei 58vh landet */
+  top: calc(58vh - 80vw + 15vh);
   left: -100%;
   z-index: 110;
   opacity: 0;
