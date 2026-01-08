@@ -189,6 +189,20 @@ body {
   pointer-events: none;
 }
 
+.text_regen {
+  position: fixed;
+  top: 44%;
+  right: 16%;
+  transform: translateY(-50%);
+  z-index: 120;
+  opacity: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: right;
+  max-width: 50%;
+  pointer-events: none;
+}
+
 .text_schuh {
   position: fixed;
   top: 44%;

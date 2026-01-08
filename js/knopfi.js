@@ -219,6 +219,20 @@ walkTimeline.to(knopf, {
     ease: "power2.in"
 }, 0.85);
 
+// 10. Text "Plop!" einblenden nach dem Knopf-Fall
+walkTimeline.to(".text_regen", {
+    opacity: 1,
+    duration: 0.1,
+    ease: "none"
+}, 1.0);
+
+// 11. Text "Plop!" ausblenden
+walkTimeline.to(".text_regen", {
+    opacity: 0,
+    duration: 0.1,
+    ease: "none"
+}, 1.15);
+
 // ScrollTrigger für das Andocken des Knopfes beim Vorwärts- und Rückwärts-Scrollen
 ScrollTrigger.create({
     trigger: "#walk-spacer",
@@ -338,14 +352,7 @@ schuhTimeline.to(schuh, {
     ease: "power1.inOut"
 }, 0.15);
 
-// 4. Text ausblenden während Schuh sich bewegt
-schuhTimeline.to(".text_schuh", {
-    opacity: 0,
-    duration: 0.2,
-    ease: "none"
-}, 0.15);
-
-// 5. Knopf beginnt nach rechts zu rollen beim Impact
+// 4. Knopf beginnt nach rechts zu rollen beim Impact
 schuhTimeline.to(knopf, {
     left: "40%",
     rotation: "+=720",
@@ -370,8 +377,14 @@ const mauerTimeline = gsap.timeline({
     }
 });
 
-// 1. Schuh ausblenden
+// 1. Schuh und Text ausblenden
 mauerTimeline.to(schuh, {
+    opacity: 0,
+    duration: 0.2,
+    ease: "none"
+}, 0);
+
+mauerTimeline.to(".text_schuh", {
     opacity: 0,
     duration: 0.2,
     ease: "none"
