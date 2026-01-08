@@ -623,13 +623,6 @@ katzeTimeline.to("#aussicht", {
     ease: "none"
 }, 3.1);
 
-// Text erscheint mit der Aussicht
-katzeTimeline.to(".text_aussicht", {
-    opacity: 1,
-    duration: 0.3,
-    ease: "none"
-}, 3.1);
-
 // 6. Container_katze und Knopf kommen wieder nach oben
 katzeTimeline.to(".container_katze", {
     top: "0%",
@@ -654,6 +647,13 @@ katzeTimeline.to(".container_katze", {
     duration: 1.2,
     ease: "none"
 }, 6.3);
+
+// Text erscheint nachdem die Katze verschwunden ist und nur der Knopf übrig bleibt
+katzeTimeline.to(".text_aussicht", {
+    opacity: 1,
+    duration: 0.5,
+    ease: "none"
+}, 7.0);
 
 
 
