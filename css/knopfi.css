@@ -230,12 +230,9 @@ body {
   top: 0;
   left: 100%;
   width: 100vw;
-  z-index: 6;
+  z-index: 4;
   opacity: 1;
   pointer-events: none;
-  background-image: url('../images/background.png');
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
 }
 
@@ -469,7 +466,7 @@ body {
 }
 
 #mauer-spacer {
-  height: 150vh;
+  height: 100vh;
   position: relative;
 }
 

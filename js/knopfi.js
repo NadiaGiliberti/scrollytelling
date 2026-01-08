@@ -404,6 +404,13 @@ mauerTimeline.to(".container_mauer", {
     ease: "none"
 }, 0);
 
+// 3. Regen-Container ausblenden NACH der Bewegung
+mauerTimeline.to(".container_regen", {
+    opacity: 0,
+    duration: 0.1,
+    ease: "none"
+}, 0.9);
+
 // 3. Knopf bleibt an Position und dreht sich weiter
 mauerTimeline.to(knopf, {
     rotation: "+=1080",
